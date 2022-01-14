@@ -29,34 +29,35 @@ public class BOJ_15486 {
             input[i] = new Work(day,pay);
         }
         int dp[] = new int[n+1];
-        int max = 0;
-        for(int i = 0 ; i < n ; i++){
-            Work work = input[i];
-            max = Math.max(max,dp[i]);
-            dp[i] = max;
-            if(work.day + i  <= n){
-                dp[work.day + i] = Math.max(dp[work.day + i], max + work.pay);
-            }
+//        int max = 0;
+//        for(int i = 0 ; i < n ; i++){
+//            Work work = input[i];
+//            max = Math.max(max,dp[i]);
+//            dp[i] = max;
+//            if(work.day + i  <= n){
+//                dp[work.day + i] = Math.max(dp[work.day + i], max + work.pay);
+//            }
 //            System.out.println(Arrays.toString(dp));
-        }
-//        Arrays.fill(dp,-1);
-//        System.out.println(dfs(n,input,0,dp));
-        int result = Math.max(dp[n-1],dp[n]);
-        System.out.println(result);
+//        }
+        Arrays.fill(dp,-1);
+        System.out.println(dfs(n,input,0,dp));
+//        int result = Math.max(dp[n-1],dp[n]);
+//        System.out.println(result);
     }
 
     private static int dfs(int n, Work[] input ,int now, int[] dp) {
-//        System.out.println(now);
         if(now >= n){
             return 0;
         }
         if(dp[now] != -1){
             return dp[now];
         }
+//        System.out.println(now);
         Work work = input[now];
         int result = 0;
-        if(work.day+now <= n){
-            result = Math.max(dfs(n,input,now + work.day,dp) + work.pay,dfs(n,input,now + 1,dp));
+        int next = work.day + now;
+        if(next <= n){
+            result = Math.max(dfs(n,input,next,dp) + work.pay,dfs(n,input,now + 1,dp));
         }else{
             result = dfs(n,input,now + 1,dp);
         }
