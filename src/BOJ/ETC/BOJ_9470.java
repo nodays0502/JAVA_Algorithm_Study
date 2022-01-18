@@ -68,7 +68,7 @@ public class BOJ_9470 {
                         q.offer(new Node(next,number[next]+1));
                         result = Math.max(number[next]+1,result);
                     }else{
-                        q.offer(new Node(next,now.number));
+                        q.offer(new Node(next,Math.max(now.number,number[next])));
                     }
                 }else{
                     if(number[next] == now.number){
