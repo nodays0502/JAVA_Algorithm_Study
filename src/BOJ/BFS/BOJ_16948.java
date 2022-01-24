@@ -7,7 +7,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 import java.util.function.Function;
-import org.w3c.dom.Node;
 
 public class BOJ_16948 {
 
