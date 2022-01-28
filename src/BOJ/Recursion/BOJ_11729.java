@@ -13,7 +13,6 @@ public class BOJ_11729 {
         int result = 1;
         result += hanoi(depth-1, from, mid, to,sb);
         sb.append(from+" "+to+"\n");
-//        System.out.println(from + " " + to);
         result += hanoi(depth-1, mid, to, from,sb);
         return result;
     }
