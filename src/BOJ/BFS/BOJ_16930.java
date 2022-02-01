@@ -2,7 +2,11 @@ package BOJ.BFS;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.LinkedList;
+import java.util.Objects;
+import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.StringTokenizer;
 import java.util.function.Function;
@@ -30,41 +34,91 @@ public class BOJ_16930 {
         int endX = stoi.apply(st.nextToken()) - 1;
         System.out.println(bfs(map,n,m,k,startY,startX,endY,endX));
     }
+    private static class Node implements Comparable<Node> {
+        int y;
+        int x;
+        int cnt;
 
-    private static  int bfs(char[][] map, int n ,int m , int k, int startY, int startX, int endY, int endX) {
+        public Node(int y, int x, int cnt) {
+            this.y = y;
+            this.x = x;
+            this.cnt = cnt;
+        }
+
+        @Override
+        public int compareTo(Node o) {
+            return this.cnt - o.cnt;
+        }
+    }
+    private static int bfs(char[][] map, int n ,int m , int k, int startY, int startX, int endY, int endX) {
         final int dy[] = {-1,0,1,0};
         final int dx[] = {0,1,0,-1};
-        Queue<int[]> q = new LinkedList< >();
-        boolean[][] visited = new boolean[n][m];
-        q.offer(new int[] {startY,startX});
-        visited[startY][startX] = true;
-        int time = 0;
+        final int INF = 987654321;
+        Queue<Node> q = new PriorityQueue<>();
+        int[][] dp = new int[n][m];
+        for(int i = 0 ; i < n ; i++){
+            Arrays.fill(dp[i],INF);
+        }
+        q.offer(new Node(startY,startX,0));
         while(!q.isEmpty()){
-            int size = q.size();
-            for(int s = 0 ; s < size ; s++){
-                int[] now = q.poll();
-                if(now[0] == endY && now[1] == endX){
-                    return time;
-                }
-                for(int i = 0 ; i < 4 ; i++){
-                    int ny = now[0];
-                    int nx = now[1];
-                    for(int j = 1 ; j <= k ; j++){
-                        ny += dy[i];
-                        nx += dx[i];
-                        if(nx >= 0 && nx < m && ny >= 0 && ny < n && map[ny][nx] == '.'){
-                            if(!visited[ny][nx]){
-                                visited[ny][nx] = true;
-                                q.offer(new int[]{ny,nx});
-                            }
-                        }else{
+            Node now = q.poll();
+            if(now.y == endY && now.x == endX){
+                return now.cnt;
+            }
+            for(int i = 0 ; i < 4; i++){
+                int ny = now.y;
+                int nx = now.x;
+                for(int j = 1 ; j <= k ; j++){
+                    ny += dy[i];
+                    nx += dx[i];
+                    if(ny >= 0 && ny < n && nx >= 0 && nx < m){
+                        if(map[ny][nx] == '#' || dp[ny][nx] < now.cnt +1){
                             break;
+                        }
+                        if(dp[ny][nx] == INF){
+                            dp[ny][nx] = now.cnt + 1;
+                            q.offer(new Node(ny,nx,now.cnt + 1));
                         }
                     }
                 }
             }
-            time++;
         }
         return -1;
     }
+//    private static int bfs(char[][] map, int n ,int m , int k, int startY, int startX, int endY, int endX) {
+//        final int dy[] = {-1,0,1,0};
+//        final int dx[] = {0,1,0,-1};
+//        Queue<int[]> q = new LinkedList< >();
+//        boolean[][] visited = new boolean[n][m];
+//        q.offer(new int[] {startY,startX});
+//        visited[startY][startX] = true;
+//        int time = 0;
+//        while(!q.isEmpty()){
+//            int size = q.size();
+//            for(int s = 0 ; s < size ; s++){
+//                int[] now = q.poll();
+//                if(now[0] == endY && now[1] == endX){
+//                    return time;
+//                }
+//                for(int i = 0 ; i < 4 ; i++){
+//                    int ny = now[0];
+//                    int nx = now[1];
+//                    for(int j = 1 ; j <= k ; j++){
+//                        ny += dy[i];
+//                        nx += dx[i];
+//                        if(nx >= 0 && nx < m && ny >= 0 && ny < n && map[ny][nx] == '.'){
+//                            if(!visited[ny][nx]){
+//                                visited[ny][nx] = true;
+//                                q.offer(new int[]{ny,nx});
+//                            }
+//                        }else{
+//                            break;
+//                        }
+//                    }
+//                }
+//            }
+//            time++;
+//        }
+//        return -1;
+//    }
 }
