@@ -85,40 +85,4 @@ public class BOJ_16930 {
         }
         return -1;
     }
-//    private static int bfs(char[][] map, int n ,int m , int k, int startY, int startX, int endY, int endX) {
-//        final int dy[] = {-1,0,1,0};
-//        final int dx[] = {0,1,0,-1};
-//        Queue<int[]> q = new LinkedList< >();
-//        boolean[][] visited = new boolean[n][m];
-//        q.offer(new int[] {startY,startX});
-//        visited[startY][startX] = true;
-//        int time = 0;
-//        while(!q.isEmpty()){
-//            int size = q.size();
-//            for(int s = 0 ; s < size ; s++){
-//                int[] now = q.poll();
-//                if(now[0] == endY && now[1] == endX){
-//                    return time;
-//                }
-//                for(int i = 0 ; i < 4 ; i++){
-//                    int ny = now[0];
-//                    int nx = now[1];
-//                    for(int j = 1 ; j <= k ; j++){
-//                        ny += dy[i];
-//                        nx += dx[i];
-//                        if(nx >= 0 && nx < m && ny >= 0 && ny < n && map[ny][nx] == '.'){
-//                            if(!visited[ny][nx]){
-//                                visited[ny][nx] = true;
-//                                q.offer(new int[]{ny,nx});
-//                            }
-//                        }else{
-//                            break;
-//                        }
-//                    }
-//                }
-//            }
-//            time++;
-//        }
-//        return -1;
-//    }
 }
