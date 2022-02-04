@@ -19,14 +19,6 @@ public class BOJ_1516 {
             this.time = time;
             this.number = number;
         }
-
-        @Override
-        public String toString() {
-            return "Node{" +
-                "time=" + time +
-                ", number=" + number +
-                '}';
-        }
     }
     static final int INF = 100_000 * 500;
     private static String cal(List<Integer>[] map,int[] needTime,int[] count,int n){
@@ -40,20 +32,16 @@ public class BOJ_1516 {
                 startTime[i] = 0;
             }
         }
-//        System.out.println(q);
         while(!q.isEmpty()){
             Node now = q.poll();
             for(int i = 0 ; i < map[now.number].size(); i++){
                 int next = map[now.number].get(i);
                 startTime[next] = Math.max(startTime[next],now.time + needTime[now.number]);
-//                System.out.println(now.time + needTime[now.number]);
                 if(--count[next] == 0){
                     q.offer(new Node(startTime[next],next));
                 }
             }
         }
-//        System.out.println(Arrays.toString(count));
-//        System.out.println(Arrays.toString(startTime));;
         for(int i = 1 ; i <= n ; i++){
             result.append(startTime[i]+needTime[i]+"\n");
         }
