@@ -9,15 +9,7 @@ import java.util.StringTokenizer;
 import java.util.function.Function;
 
 public class BOJ_1719 {
-    private static class Node{
-        int target;
-        int weight;
 
-        public Node(int target,int weight) {
-            this.target = target;
-            this.weight = weight;
-        }
-    }
     private static final int INF = 987654321;
     private static void floyd(int[][] result ,int[][] map, int size){
         for(int k = 1 ; k <= size ; k++){
