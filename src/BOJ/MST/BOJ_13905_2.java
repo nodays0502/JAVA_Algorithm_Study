@@ -66,12 +66,10 @@ public class BOJ_13905_2 {
         Collections.sort(list,(o1,o2)->{
             return o2.weight - o1.weight;
         });
-        int result = INF;
         for(Edge edge : list){
             if(union(edge.from,edge.to,parent)){
-                result = Math.min(result,edge.weight);
                 if(findSet(start,parent) == findSet(end,parent)){
-                    return result;
+                    return edge.weight;
                 }
             }
         }
