@@ -44,7 +44,6 @@ public class BOJ_1781 {
         for(int deadLine = n ; deadLine >= 1 ; deadLine--){
             while(index < input.size()){
                 Problem problem = input.get(index);
-//                System.out.println(problem.deadLine+" "+problem.reward);
                 if(problem.deadLine >= deadLine){
                     pq.offer(problem.reward);
                     index++;
@@ -54,7 +53,6 @@ public class BOJ_1781 {
             }
             if(!pq.isEmpty()){
                 result += pq.poll();
-//                System.out.println(deadLine+" "+result);
             }
         }
         System.out.println(result);
