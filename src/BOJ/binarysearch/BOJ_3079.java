@@ -21,14 +21,15 @@ public class BOJ_3079 {
         System.out.println(answer);
     }
 
-    private static final long MIN_TIME = 0;
+    private static final long MIN_TIME = 1;
     private static final long MAX_TIME = 1_000_000_000L * 1_000_000_000L;
     private static long binarySearch(int[] input, int n, int m) {
-        long result = 0;
+        long result = MAX_TIME;
         long start = MIN_TIME;
         long end = MAX_TIME;
         while(start <= end){
             long mid = (start + end)/2;
+//            System.out.println(mid);
             if(checkInTime(input,n,m,mid)){
                 end = mid - 1;
                 result = mid;
@@ -43,6 +44,7 @@ public class BOJ_3079 {
         long peopleCnt = 0;
         for(int i = 0 ; i < n ; i++){
             peopleCnt += (time / input[i]);
+
         }
         if(peopleCnt >= m){
             return true;
