@@ -1,5 +1,7 @@
 package Programmers.ETC;
 
+import java.util.Arrays;
+
 public class 등굣길 {
     private static final int LIMIT = 1_000_000_007;
     private static final int[] DY = {1,0};
