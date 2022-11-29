@@ -1,5 +1,8 @@
 package Programmers.ETC;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class 한_번만_등장한_문자 {
     public String solution(String s) {
         String answer = "";
