@@ -1,5 +1,6 @@
 package Programmers.ETC;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class 배열의_유사도 {
