@@ -1,6 +1,7 @@
+package Programmers.ETC;
 import java.util.*;
 
-class Solution {
+public class 가장_가까운_같은_글자 {
     private static final int SIZE = 26;
     public int[] solution(String s) {
         int sSize = s.length();
@@ -20,3 +21,4 @@ class Solution {
         return answer;
     }
 }
+
