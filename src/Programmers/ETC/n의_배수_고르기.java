@@ -1,5 +1,8 @@
 package Programmers.ETC;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class n의_배수_고르기 {
     public int[] solution(int n, int[] numlist) {
         int[] answer = {};
