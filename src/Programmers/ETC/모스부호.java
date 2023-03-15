@@ -1,5 +1,8 @@
 package Programmers.ETC;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class 모스부호 {
     public String solution(String letter) {
         String answer = "";
