@@ -18,19 +18,16 @@ public class BOJ_16401 {
         for(int i = 0 ; i < snackCnt ; i++) {
             snack[i] = stoi.apply(st.nextToken());
         }
-        int result = binearySearch(snack,peopleCnt);
+        int result = binarySearch(snack,peopleCnt);
         System.out.println(result);
     }
 
-    private static int binearySearch(int[] snack, int peopleCnt) {
-        int end = 1_000_000_000;
-        int start = 0;
+    private static int binarySearch(int[] snack, int peopleCnt) {
+        int end = 1_000_000_000+1;
+        int start = 1;
         int result = 0;
         while(start <= end){
-            int mid = (start+end)/2;
-            if(mid == 0){
-                break;
-            }
+            int mid = (start + end)/2;
             if(checkSnackLengthCnt(snack,mid) >= peopleCnt){
                 result = mid;
                 start = mid + 1;
