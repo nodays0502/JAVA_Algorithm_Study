@@ -1,14 +1,13 @@
 package Programmers;
 
+import java.util.Arrays;
+
 public class test_2 {
 
     public static void main(String[] args) {
-        System.out.println(1<<0);
-        System.out.println(1<<1);
-        System.out.println(1<<2);
-        System.out.println(1<<3);
-        System.out.println(1<<4);
-        System.out.println(1<<11);
+        int[] arr = new int[]{1,2,3};
+        int index = Arrays.binarySearch(arr,0,1,2);
+        System.out.println(index);
 
     }
 }
