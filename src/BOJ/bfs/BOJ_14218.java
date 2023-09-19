@@ -3,10 +3,8 @@ package BOJ.bfs;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Queue;
 import java.util.StringTokenizer;
 import java.util.function.Function;
@@ -35,9 +33,6 @@ public class BOJ_14218 {
             st = new StringTokenizer(br.readLine());
             int a = stoi.apply(st.nextToken());
             int b = stoi.apply(st.nextToken());
-//            Map<Integer,Integer> isConnected = new HashMap<>();
-//            isConnected.put(a,b);
-//            isConnected.put(b,a);
             list[a].add(b);
             list[b].add(a);
             int[] result = bfs(list,n);
@@ -69,13 +64,6 @@ public class BOJ_14218 {
                         visited[next] = true;
                     }
                 }
-//                if(isConnected.containsKey(now) ){
-//                    int next = isConnected.get(now);
-//                    if(!visited[next]){
-//                        q.offer(next);
-//                        visited[next] = true;
-//                    }
-//                }
             }
             time++;
         }
