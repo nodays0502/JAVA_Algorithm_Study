@@ -1,13 +1,12 @@
+package BOJ.simulation;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Deque;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class Test {
+public class BOJ_15683_2 {
 
     private static final int[][] CCTV_DIR = {
         {}, // DUMMY
@@ -84,4 +83,3 @@ public class Test {
         return result;
     }
 }
-
