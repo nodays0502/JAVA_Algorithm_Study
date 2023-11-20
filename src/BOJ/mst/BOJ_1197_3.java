@@ -1,4 +1,4 @@
-package BOJ.simulation;
+package BOJ.mst;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class BOJ_3190_2 {
+public class BOJ_1197_3 {
     private static final int NO_EDGE = -1;
     private static final int INF = Integer.MAX_VALUE;
     public static void main(String[] args) throws Exception {
