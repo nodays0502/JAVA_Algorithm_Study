@@ -6,7 +6,7 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
 
-public class BOJ_1290 {
+public class BOJ_3190_2 {
     private static final char LEFT = 'L';
     private static final char RIGHT = 'D';
     public static void main(String[] args) throws Exception {
