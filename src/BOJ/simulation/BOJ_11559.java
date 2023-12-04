@@ -1,5 +1,10 @@
 package BOJ.simulation;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BOJ_11559 {
 
     private static final char EMPTY = '.';
