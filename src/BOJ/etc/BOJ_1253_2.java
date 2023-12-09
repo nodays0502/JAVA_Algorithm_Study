@@ -1,10 +1,12 @@
+package BOJ.etc;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-public class Test {
+public class BOJ_1253_2 {
 
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -50,7 +52,3 @@ public class Test {
         }
         return cnt;
     }
-
-
-}
-
