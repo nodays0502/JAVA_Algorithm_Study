@@ -13,37 +13,37 @@ public class BOJ_1253_2 {
         int n = Integer.parseInt(br.readLine());
         StringTokenizer st = new StringTokenizer(br.readLine());
         int[] num = new int[n];
-        for(int i = 0 ; i < n ; i++){
-            num[i] =  Integer.parseInt(st.nextToken());
+        for (int i = 0; i < n; i++) {
+            num[i] = Integer.parseInt(st.nextToken());
         }
-        int result = cal(num,n);
+        int result = cal(num, n);
         System.out.println(result);
     }
 
     private static int cal(int[] num, int n) {
 //        Arrays.sort(num);
-        Map<Integer,Integer> map = new HashMap<>();
-        for(int i = 0 ; i < n ; i++){
-            map.merge(num[i],1,(v1,v2)->{
-                return v1+1;
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            map.merge(num[i], 1, (v1, v2) -> {
+                return v1 + 1;
             });
         }
         int cnt = 0;
-        for(int i = 0 ; i < n ; i++){
-            for(int j = 0 ; j < n ; j++){
-                if(i == j){
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i == j) {
                     continue;
                 }
                 int tempNum = num[i] - num[j];
-                if(map.containsKey(tempNum)){
+                if (map.containsKey(tempNum)) {
                     int tempCnt = map.get(tempNum);
-                    if(num[i] == tempNum){
+                    if (num[i] == tempNum) {
                         tempCnt--;
                     }
-                    if(num[j] == tempNum){
+                    if (num[j] == tempNum) {
                         tempCnt--;
                     }
-                    if(tempCnt > 0){
+                    if (tempCnt > 0) {
                         cnt++;
                         break;
                     }
@@ -52,3 +52,4 @@ public class BOJ_1253_2 {
         }
         return cnt;
     }
+}
